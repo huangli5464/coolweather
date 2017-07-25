@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.roger.coolweather.MainActivity">
+    tools:context="com.roger.coolweather.aty.MainActivity">
 
     <fragment
         android:name="com.roger.coolweather.frag.ChooseAreaFragment"
