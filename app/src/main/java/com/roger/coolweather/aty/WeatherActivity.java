@@ -1,5 +1,6 @@
 package com.roger.coolweather.aty;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.roger.coolweather.R;
 import com.roger.coolweather.gson.Forecast;
 import com.roger.coolweather.gson.Weather;
+import com.roger.coolweather.service.AutoUpdateService;
 import com.roger.coolweather.util.HttpUtil;
 import com.roger.coolweather.util.Utility;
 
@@ -103,6 +105,9 @@ public class WeatherActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 加载必应每日一图
+     */
     private void loadBingPic() {
         String requestBingPic = "http://guolin.tech/api/bing_pic";
         HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
@@ -209,6 +214,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
